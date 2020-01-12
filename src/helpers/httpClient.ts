@@ -27,12 +27,7 @@ export  class HttpClient {
   }
 
   public init():Promise<any>{
-    return this.getHeaders(this.header).then((data:any)=>{
-      this.header = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${data.data.access_token}`
-      };  
+    return this.getHeaders(this.header).then((data:any)=>{ 
       return data.data.access_token
     });
   }
@@ -60,7 +55,11 @@ export  class HttpClient {
       pageNo
     } = data;
     let postIdCropped = postId.substr(0,6);
-    return this.get(`v1/comments?search[post_id]=${postIdCropped}&per_page=5&page=${pageNo}`,{headers: this.header});
+    return this.get(`v1/comments?search[post_id]=${postIdCropped}&per_page=5&page=${pageNo}`,{headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `bearer ${localStorage.getItem('bearerToken')}`
+    }});
   }
 
 
