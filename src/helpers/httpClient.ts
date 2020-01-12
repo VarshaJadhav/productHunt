@@ -14,6 +14,7 @@ export  class HttpClient {
   private clientSecret: string
   private header: basicHeader
   constructor(baseUrl:string){
+    console.log(localStorage.getItem('bearerToken'),'lol');
     this.baseUrl = baseUrl;
     this.clientId = 'QFGjZcIX3ljxrHzaOmU3S6hBIhcg_1gnH2g-nx5YGDI';
     this.clientSecret = "2TjOwyesspn5qvkrtGoO4x5xNIdFLt5d3vKhWZSalUM";
@@ -46,7 +47,11 @@ export  class HttpClient {
   }
 
   public fetchPosts(day:string=''): Promise<any> {
-    return this.get(`v1/posts?day=${day}`,{headers: this.header});
+    return this.get(`v1/posts?day=${day}`,{headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `bearer ${localStorage.getItem('bearerToken')}`
+    }})
   }
 
   public fetchComments(data:any) {
