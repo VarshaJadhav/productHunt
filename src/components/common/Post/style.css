@@ -1,0 +1,63 @@
+.post {
+  width: 320px;
+  box-shadow: 0 1px 3px #888;
+  padding: 20px;
+  padding-bottom: 50px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.post a {
+  text-decoration: none;
+  color: #333;
+}
+
+.post h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.post h5 {
+  font-size: 16px;
+  color: #888;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+.post img {
+  border: 1px solid #eee;
+}
+
+.post .created {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.post .author {
+  font-size: 15px;
+  line-height: 17px;
+  margin: 5px 0;
+  display: block;
+}
+
+.like-btn {
+  position: absolute;
+  font-size: 16px;
+  color: #6699cc;
+  border: 1px solid #6699cc;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-top: 10px;
+  right: 15px;
+  bottom: 10px;
+  cursor: pointer;
+
+}
+
+.like-btn.unlike {
+  color: #fff;
+  background: #6699cc;
+}

@@ -1,0 +1,32 @@
+header {
+  width: 100%;
+  left:0;
+  top:0;
+  position: fixed;
+  box-shadow: 0 0 2px #888;
+  padding: 20px;
+  z-index: 10;
+  background: #fff;
+}
+h1 {
+  float: left;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.navigation {
+  float: right;
+}
+
+.navigation a {
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #6699cc;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}

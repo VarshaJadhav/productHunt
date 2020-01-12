@@ -45,8 +45,8 @@ export  class HttpClient {
     header)
   }
 
-  public fetchPosts(): Promise<any> {
-    return this.get(`v1/posts`,{headers: this.header});
+  public fetchPosts(day:string=''): Promise<any> {
+    return this.get(`v1/posts?day=${day}`,{headers: this.header});
   }
 
 

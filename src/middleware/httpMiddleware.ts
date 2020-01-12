@@ -8,10 +8,10 @@ const client = new HttpClient(BASE_URL);
 
 export default function httpMiddleware({dispatch}:any){
     return(next:Function)=>{
-      return(action:Action)=>{
+      return(action:any)=>{
         next(action);
         if(action.type === POST_LIST_REQUEST){
-          client.fetchPosts().then((data:any)=>{
+          client.fetchPosts(action.payload.day).then((data:any)=>{
              dispatch(postListSuccess(data));
           });
 

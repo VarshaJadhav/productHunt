@@ -1,5 +1,8 @@
 import React, {Component } from 'react';
 import { connect } from 'react-redux';
+import { Post } from '../common/Post';
+
+import './style.css';
 
 interface LikedPostListProps {
   likedPosts: Array<any>
@@ -13,14 +16,23 @@ interface LikedPostListState {
     super(props);
   }
 
-  componentDidMount(){
-    console.log(this.props.likedPosts)
+  renderLikedPost(){
+    return this.props.likedPosts.map(post=>{
+      return <Post postData={post} key={post.id} />
+    })
   }
   render(){
     return(
-      <React.Fragment>
-        This is Listing Page.
-      </React.Fragment>
+      <div className="container liked-page">
+      <h2>Liked posts: </h2>
+        <div className="post-container">
+        {
+          this.props.likedPosts.length ?
+          this.renderLikedPost()
+          : <div>You don't have any liked post.</div>
+        }
+        </div>
+      </div>
     )
   }
 }
