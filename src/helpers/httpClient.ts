@@ -3,7 +3,6 @@ import axios from 'axios';
 interface basicHeader {
   'Accept' : string
   'Content-Type': string
-  'Host': string
   'Authorization'?:string
 }
 
@@ -21,7 +20,7 @@ export  class HttpClient {
     this.header = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Host': 'api.producthunt.com'
+      'Authorization': localStorage.getItem('bearerToken')? `Bearer ${localStorage.getItem('bearerToken')}` : ''
     }
 
   }
@@ -31,9 +30,9 @@ export  class HttpClient {
       this.header = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Host': 'api.producthunt.com',
         'Authorization': `Bearer ${data.data.access_token}`
       };  
+      return data.data.access_token
     });
   }
 
@@ -69,5 +68,4 @@ export  class HttpClient {
 export type httpClientProps =  {
   fetchPosts: Function,
   init: Function,
-
 }

@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {SiteRouter} from '../src/components/routes';
-import {HttpClient} from '../src/helpers/httpClient';
-const App: React.FC = () => {
-  let myHttpClient:Object = new HttpClient('https://api.producthunt.com/v2');
+import { HttpClient,httpClientProps } from './helpers/httpClient';
+import { BASE_URL } from './const';
+let isLoadedOnces = false;
+let client:httpClientProps;
+const App: React.FC = (props:any) => {
+  const [isPageLoaded,togglePageLoad] = useState(false);
+  client = new HttpClient(BASE_URL);
+  if(!isLoadedOnces) {
+    localStorage.clear();
+    isLoadedOnces = true;
+    client.init()
+    .then((data:any)=>{
+      localStorage.setItem('bearerToken',data);
+      togglePageLoad(true)     
+    })
+  }
   return (
     <div className="App">
+    {
+      isPageLoaded ?
     <SiteRouter/>
+    : <React.Fragment>Loading....</React.Fragment>
+    }
     </div>
   );
 }
