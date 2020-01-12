@@ -5,7 +5,16 @@ import { Comment } from '../common/comments';
 
 import './style.css';
 
-class PostDetails extends Component<any,any> {
+interface PostDetailsStates {
+  commentCount: number,
+  heading: string,
+  postId: string,
+  commentList: Array<any>
+  pageNo: number,
+  pageCount: number
+}
+
+class PostDetails extends Component<any,PostDetailsStates> {
 
   constructor(props:any){
     super(props);
@@ -29,7 +38,7 @@ class PostDetails extends Component<any,any> {
     this.props.commentListRequest({postId: this.state.postId,pageNo:this.state.pageNo})
   }
 
-  renderNextPageComments(pageno:Number){
+  renderNextPageComments(pageno:number){
     this.setState({
       pageNo: pageno
     })
