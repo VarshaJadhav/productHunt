@@ -1,16 +1,21 @@
 .post {
   width: 320px;
   box-shadow: 0 1px 3px #888;
-  padding: 20px;
-  padding-bottom: 50px;
   margin-bottom: 15px;
   border-radius: 10px;
   position: relative;
 }
 
 .post a {
+  padding: 20px;
+  padding-bottom: 50px;
+  display: block;
   text-decoration: none;
   color: #333;
+}
+
+.post:hover {
+  background: pink;
 }
 
 .post h3 {
@@ -28,6 +33,7 @@
 
 .post img {
   border: 1px solid #eee;
+  background: #fff;
 }
 
 .post .created {

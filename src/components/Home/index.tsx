@@ -80,7 +80,7 @@ class Home extends React.Component <HomeProps,HomeState>{
   render(){
     return(
       <div className="container">
-      <div className="date-search">Find post by date: <input type='date' defaultValue={this.state.defaultDate} onChange={e=>this.updateDate(e.target.value)}/></div>
+      <div className="date-search">Find post by date: <input type='date' defaultValue={this.state.defaultDate} onChange={e=>this.updateDate(e.target.value)} max={this.state.defaultDate}/></div>
         <div className="post-container">
         {
           this.state.isFetchingPostRequest ?

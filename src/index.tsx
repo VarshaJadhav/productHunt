@@ -5,10 +5,11 @@ import App from './App';
 import {Provider } from 'react-redux';
 import {createStore, combineReducers, applyMiddleware } from 'redux';
 import * as serviceWorker from './serviceWorker';
-import postListReducer from './reducers/postList'
+import postListReducer from './reducers/postList';
+import commentListReducer from './reducers/commentsList'
 import httpMiddleware from './middleware/httpMiddleware'
 
-const store = combineReducers({postListReducer})
+const store = combineReducers({postListReducer,commentListReducer})
 
 
 ReactDOM.render(

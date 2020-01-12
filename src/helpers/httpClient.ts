@@ -49,6 +49,15 @@ export  class HttpClient {
     return this.get(`v1/posts?day=${day}`,{headers: this.header});
   }
 
+  public fetchComments(data:any) {
+    let {
+      postId,
+      pageNo
+    } = data;
+    let postIdCropped = postId.substr(0,6);
+    return this.get(`v1/comments?search[post_id]=${postIdCropped}&per_page=5&page=${pageNo}`,{headers: this.header});
+  }
+
 
   private createEndPoint(endpoint:string) :string{
     return `${this.baseUrl}/${endpoint}`
@@ -68,4 +77,5 @@ export  class HttpClient {
 export type httpClientProps =  {
   fetchPosts: Function,
   init: Function,
+  fetchComments: Function
 }

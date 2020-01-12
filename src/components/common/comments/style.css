@@ -1,0 +1,17 @@
+.comment {
+ padding: 20px;
+ margin: 30px;
+ box-shadow: 1px 1px 3px #eee;
+ background: lightblue;
+ border-radius: 10px;
+}
+.comment p {
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 15px;
+}
+
+.comment .date {
+  float: right;
+  padding-bottom: 10px;
+}
