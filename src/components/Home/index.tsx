@@ -85,7 +85,9 @@ class Home extends React.Component <HomeProps,HomeState>{
         {
           this.state.isFetchingPostRequest ?
           <div className="loader"></div>
-          : this.createPostList()
+          :this.state.postList.length > 0 ? 
+          this.createPostList()
+          : <div>No post available for this date.</div>
         }
         </div>
       </div>
